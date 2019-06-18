@@ -1,4 +1,4 @@
-.nav {
+.Nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -6,11 +6,11 @@
   background-color: #333;
 }
 
-.nav-pills {
+.Nav-pill {
   float: left;
 }
 
-.nav-pills a {
+.Nav-pill a {
   display: block;
   color: white;
   text-align: center;
@@ -18,6 +18,6 @@
   text-decoration: none;
 }
 
-.nav-pills a:hover {
+.Nav-pill a:hover {
   background-color: #111;
 }

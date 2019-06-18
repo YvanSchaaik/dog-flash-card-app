@@ -14,8 +14,6 @@ import Info from  './components/Info'
 class App extends React.Component {
   render(){
     return (
- 
-        
       <Provider store= {store}>
         <div className="App">
           <Navbar />

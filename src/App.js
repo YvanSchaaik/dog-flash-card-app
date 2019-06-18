@@ -5,6 +5,8 @@ import {Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import {DogListContainer} from './component/DogListContainer'
 
+import Navbar from './components/Navbar';
+
 
 class App extends React.Component {
   render(){
@@ -15,6 +17,11 @@ class App extends React.Component {
           <Route exact path ='/dog-breed' component={DogListContainer} />
         </div>
       </Provider>
+      <div className="App">
+        <Navbar />
+        <h1>Hello world</h1>
+
+      </div>
     );
   }
 }

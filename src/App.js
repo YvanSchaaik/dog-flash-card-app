@@ -13,8 +13,6 @@ import Navbar from './components/Navbar';
 class App extends React.Component {
   render(){
     return (
- 
-        
       <Provider store= {store}>
         <div className="App">
           <h1>THISISATEST</h1>

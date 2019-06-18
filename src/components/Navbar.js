@@ -9,7 +9,7 @@ export default class Navbar extends Component {
             <li className="nav-pill"><a href="home">Home</a></li>
             <li className="nav-pill"><a href="breeds">Breeds</a></li>
             <li style={{float:"right"}} className="nav-pill"><a href="#play" >Play</a></li>
-            <li className="nav-pill"><a href="#info">Info</a></li>
+            <li className="nav-pill"><a href="info">Info</a></li>
           </ul>
       </div>
               )

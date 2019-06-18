@@ -4,12 +4,12 @@ import './Navbar.css'
 export default class Navbar extends Component {
   render() {
     return (
-      <div>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Breeds</a></li>
-            <li style={{float:"right"}}><a href="#" >Play</a></li>
-            <li><a href="">Info</a></li>
+      <div className="navbar">
+          <ul className="nav">
+            <li className="nav-pill"><a href="#home">Home</a></li>
+            <li className="nav-pill"><a href="#breeds">Breeds</a></li>
+            <li style={{float:"right"}} className="nav-pill"><a href="#play" >Play</a></li>
+            <li className="nav-pill"><a href="#info">Info</a></li>
           </ul>
       </div>
               )

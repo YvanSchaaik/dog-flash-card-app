@@ -14,8 +14,6 @@ import DogBreedImagesContainer from './components/DogBreedImagesContainer'
 class App extends React.Component {
   render(){
     return (
- 
-        
       <Provider store= {store}>
         <div className="App">
           <Navbar />

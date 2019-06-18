@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home'
 import DogBreedImagesContainer from './components/DogBreedImagesContainer'
 import GamesContainer from './components/GamesContainer';
+import Game1 from './components/games/Game1';
 
 
 
@@ -22,6 +23,8 @@ class App extends React.Component {
           <Route exact path ='/' component={Home}/>
           <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer}/>
           <Route path="/games" component={GamesContainer}/>
+          <Route path="/game1" component={Game1}/>
+
 
         </div>
       </Provider>

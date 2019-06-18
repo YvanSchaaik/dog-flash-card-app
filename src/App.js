@@ -3,7 +3,7 @@ import './App.css';
 import store from './store'
 import {Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
-import {DogListContainer} from './component/DogListContainer'
+// import {DogListContainer} from './component/DogListContainer'
 
 import Navbar from './components/Navbar';
 
@@ -14,14 +14,11 @@ class App extends React.Component {
       <Provider store= {store}>
         <div className="App">
           <h1>THISISATEST</h1>
-          <Route exact path ='/dog-breed' component={DogListContainer} />
+          <Route exact path ='/dog-breed' />
+          <Navbar />
         </div>
       </Provider>
-      <div className="App">
-        <Navbar />
-        <h1>Hello world</h1>
-
-      </div>
+       
     );
   }
 }

@@ -8,7 +8,7 @@ import {Provider} from 'react-redux'
 import Navbar from './components/Navbar';
 import Home from './components/Home'
 import DogBreedImagesContainer from './components/DogBreedImagesContainer'
-
+import Info from  './components/Info'
 
 
 class App extends React.Component {
@@ -20,6 +20,8 @@ class App extends React.Component {
           <Route exact path ='/' component={Home}/>
           <Route exact path ='/home' component={Home}/>
           <Route exact path ='/breeds' component={DoglistContainer}/>
+          <Route exact path ='/info' component={Info}/>
+
           <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer}/>
           
         

@@ -4,7 +4,7 @@ import './Navbar.css'
 export default class Navbar extends Component {
   render() {
     return (
-      <div>
+      <div className="navbar">
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Breeds</a></li>

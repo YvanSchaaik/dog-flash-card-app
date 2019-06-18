@@ -6,10 +6,10 @@ export default class Navbar extends Component {
     return (
       <div>
           <ul>
-            <li><a href="default.asp">Home</a></li>
-            <li><a href="news.asp">Breeds</a></li>
-            <li><a href="contact.asp">Play</a></li>
-            <li><a href="about.asp">Info</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Breeds</a></li>
+            <li style={{float:"right"}}><a href="#" >Play</a></li>
+            <li><a href="">Info</a></li>
           </ul>
       </div>
               )

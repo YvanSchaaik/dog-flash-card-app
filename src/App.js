@@ -9,6 +9,7 @@ import {Provider} from 'react-redux'
 import Navbar from './components/Navbar';
 import Home from './components/Home'
 import DogBreedImagesContainer from './components/DogBreedImagesContainer'
+import GamesContainer from './components/GamesContainer';
 
 
 
@@ -17,11 +18,11 @@ class App extends React.Component {
     return (
       <Provider store= {store}>
         <div className="App">
-          <h1>THISISATEST</h1>
+          <Navbar />
           <Route exact path ='/' component={Home}/>
           <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer}/>
-          <Navbar />
-          <DoglistContainer/>
+          <Route path="/games" component={GamesContainer}/>
+
         </div>
       </Provider>
        

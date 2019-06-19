@@ -11,7 +11,7 @@ export class Game1Container extends Component {
   }
 
   render() {
-    //if (!this.state.load) return 'Loading...'
+    if (!this.props.ImageToGuess) return 'Loading...'
     console.log('CALLING STATE', this.props.ImageToGuess) 
     return <Game1 image={ this.props.ImageToGuess }/>
    

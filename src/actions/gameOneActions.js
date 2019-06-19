@@ -25,7 +25,9 @@ export function getDogs(breed){
   return function (dispatch) {
     request(`https://dog.ceo/api/breed/${breed}/images`)
     .then(response => {
-      dispatch(setDogs(response.body.message[0]))
+      const random_num = Math.floor((Math.random() * response.body.message.length))
+      
+      dispatch(setDogs(response.body.message[random_num]))
     })
   }
 }

@@ -10,6 +10,16 @@ export function setDogs(dogs) {
     }
 }
 
+export function getDogsImages(dogs) {
+    //give something back
+  return {
+      type: GET_DOGIMG,
+      payload: {
+          dogs: dogs
+      }
+  }
+}
+
 export function getDogs() {
     return function (dispatch) {
         request('https://dog.ceo/api/breeds/list/all')
@@ -19,4 +29,15 @@ export function getDogs() {
             })
     }
   }
+  export function getDogImages() {
+    return function (dispatch) {
+        request('https://dog.ceo/api/breeds/list/all')
+            .then(response => {
+                const action = setDogs(Object.keys(response.body.message))
+                return dispatch(action)
+            })
+    }
+  }
+
 export const ADD_DOG_LIST = 'ADD_DOG_LIST'
+export const GET_DOGIMG = 'GET_DOGIMG'

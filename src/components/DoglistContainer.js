@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import request from 'superagent'
 import DogsList from './DogList';
 import {connect} from 'react-redux'
 
@@ -12,24 +11,9 @@ class DogListContainer extends Component {
 
 
 
-componentDidMount() {
-    request
-        .get('https://dog.ceo/api/breeds/list/all')
-        .then(response => response.body.message)
-        .then(resp => Object.keys(resp))
-        .then(data => this.updateBreeds(data))
-        .catch(console.error)
-}
-updateBreeds = (data) => {
-
-    this.setState({
-        dogBreeds: data
-    })
-}
-
 render() {
     return <DogsList dogBreeds={this.state.dogBreeds} />
-
+    // this line should be changet to show data from the props
 }
 
 }
@@ -37,7 +21,7 @@ render() {
 const mapStateToProps = (reduxState) => {
     console.log("mapState called ")
     return {
-        albums: reduxState.albums
+        breeds: reduxState.breeds
     }
   }
   

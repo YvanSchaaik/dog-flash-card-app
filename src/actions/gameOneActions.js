@@ -14,10 +14,13 @@ export function addDog(first, last){
   }
 }
 
-export function setDogs(breeds){
+export function setDogs(image, breed){
   return {
     type: SET_DOGS,
-    payload: breeds
+    payload: {
+      image,
+      breed
+    }
   }
 }
 
@@ -27,7 +30,7 @@ export function getDogs(breed){
     .then(response => {
       const random_num = Math.floor((Math.random() * response.body.message.length))
       
-      dispatch(setDogs(response.body.message[random_num]))
+      dispatch(setDogs(response.body.message[random_num], breed))
     })
   }
 }

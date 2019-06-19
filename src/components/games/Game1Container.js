@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Game1 from './Game1'
-import { addDog, guessBreed } from '../../actions/gameOneActions'
+import { addDog, guessBreed, getBreeds, getBreedsAndPickOne } from '../../actions/gameOneActions'
 
 export class Game1Container extends Component {
 
   componentDidMount = () => {
-    const breed = 'hound'
-    this.props.guessBreed(breed)
+    this.props.getBreedsAndPickOne()
+
   }
 
   render() {
-    if (!this.props.gameOne) return 'Loading...'
-    console.log('CALLING STATE', this.props.ImageToGuess) 
-    return <Game1 solution={ this.props.gameOne } />
+    if (!this.props.gameOne.solution || !this.props.gameOne.breeds) return 'Loading...'
+
+    return (
+      <Game1 solution={ this.props.gameOne.solution } />
+    )
    
   }
 }
@@ -24,4 +26,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addDog, guessBreed })(Game1Container)
+export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickOne })(Game1Container)

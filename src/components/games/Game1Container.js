@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Game1 from './Game1'
-import { addDog, getDogs } from '../../actions/gameOneActions'
+import { addDog, guessBreed } from '../../actions/gameOneActions'
 
 export class Game1Container extends Component {
 
   componentDidMount = () => {
     const breed = 'hound'
-    this.props.getDogs(breed)
+    this.props.guessBreed(breed)
   }
 
   render() {
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addDog, getDogs })(Game1Container)
+export default connect(mapStateToProps, { addDog, guessBreed })(Game1Container)

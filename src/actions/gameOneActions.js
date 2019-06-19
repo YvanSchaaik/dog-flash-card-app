@@ -24,7 +24,7 @@ export function setDogs(image, breed){
   }
 }
 
-export function getDogs(breed){
+export function guessBreed(breed){
   return function (dispatch) {
     request(`https://dog.ceo/api/breed/${breed}/images`)
     .then(response => {

@@ -5,7 +5,6 @@ export default (state = [], action = {}) => {
     case ADD_DOG_LIST:
       return action.payload
     default:
-      console.log('Reducer function state info = ', state)
       return state
   }
 }

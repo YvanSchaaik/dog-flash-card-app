@@ -5,7 +5,7 @@ export default function reducer (state = [], action = {}) {
     case ADD_DOG_LIST:
       return action.payload
     default:
-      console.log('state?', state)
+      console.log('Reducer function state info = ', state)
       return state
   }
 }

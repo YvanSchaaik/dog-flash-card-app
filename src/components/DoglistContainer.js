@@ -9,10 +9,17 @@ export class DogListContainer extends Component {
     }
 
     render () {
-        return <DogsList />
+        return <DogsList dogBreeds={this.props.dogs}/>
     }
 }
 
 const mapDispatchToProps = { getDogs }
 
-export default connect(null, mapDispatchToProps)(DogListContainer)
+const mapStateToProps = (state) => {
+    console.log('state?', state)
+    return {
+        dogs: state.dogs
+    } 
+ }
+
+export default connect(mapStateToProps, mapDispatchToProps)(DogListContainer)

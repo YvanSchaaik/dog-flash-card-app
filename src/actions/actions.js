@@ -1,7 +1,7 @@
 import * as request from 'superagent'
 
 export function setDogs(dogs) {
-    //give something back
+      //give something back
     return {
         type: ADD_DOG_LIST,
         payload: {

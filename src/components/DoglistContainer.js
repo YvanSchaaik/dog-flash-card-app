@@ -18,7 +18,7 @@ const mapDispatchToProps = { getDogs }
 const mapStateToProps = (state) => {
     //console.log('state?', state)  //please remove console.log
     return {
-        dog: state.DogListReducer
+        dog: state.dogListReducer
     } 
  }
 

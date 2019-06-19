@@ -8,7 +8,7 @@ import Home from './components/Home'
 import DogBreedImagesContainer from './components/DogBreedImagesContainer'
 
 import GamesContainer from './components/GamesContainer';
-import Game1 from './components/games/Game1';
+import Game1Container from './components/games/Game1Container';
 import DogListContainer from './components/DoglistContainer';
 import Info from './components/Info';
 
@@ -28,7 +28,7 @@ class App extends React.Component {
           <Route path="/info" component={Info} />
           <Route exact path ='/breeds' component={DogListContainer}/>
           <Route path="/games" component={GamesContainer}/>
-          <Route path="/game1" component={Game1}/>
+          <Route path="/game1" component={Game1Container}/>
 
 
        

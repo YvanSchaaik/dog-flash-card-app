@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
 import DogBreedImages from './DogBreedImages'
-import request from 'superagent'
+import { connect } from 'react-redux'
+import { getDogImages } from '../actions/actions'
 
-export default class DogBreedImagesContainer extends Component {
+class DogBreedImagesContainer extends Component {
     state = { images: null }
 
-      componentDidMount() {
-        const breed = this.props.match.params.breed
-        request
-            .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images`)
-            .then(response => this.updateImages(response.body.message))
-            .catch(console.error)
+    componentDidMount() {
+        this.props.getDogImages(this.props.match.params.breed)
+
     }
 
-    updateImages(images) {
-        this.setState({
-            images: images
-        })
-    }
     render() {
-        return <DogBreedImages images={this.state.images} breed={this.props.match.params.breed} />
+        return <DogBreedImages images={this.props.images} breed={this.props.match.params.breed} />
     }
 }
+const mapDispatchToProps = { getDogImages }
+
+const mapStateToProps = (state) => {
+    return {
+        images: state.DogImageReducer
+    }
+}
+
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DogBreedImagesContainer)

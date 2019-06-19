@@ -16,7 +16,7 @@ export class DogListContainer extends Component {
 const mapDispatchToProps = { getDogs }
 
 const mapStateToProps = (state) => {
-    console.log('state?', state)
+    //console.log('state?', state)  //please remove console.log
     return {
         dog: state.dogListReducer
     } 

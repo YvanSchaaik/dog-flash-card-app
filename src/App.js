@@ -10,6 +10,7 @@ import GamesContainer from './components/GamesContainer';
 import Game1 from './components/games/Game1';
 import DogListContainer from './components/DoglistContainer';
 import Footer from './components/Footer'
+import Info from './components/Info'
 
 
 

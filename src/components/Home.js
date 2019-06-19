@@ -15,7 +15,7 @@ export class Home extends Component {
                         <p> Please play our game and learn everying about all the breeds!</p>
                         <h2>Github</h2>
                         <p> Do you want to know how we made this awesome app?</p>
-                        <p><a href="https://github.com/YvanSchaaik/dog-flash-card-app/" target="_blank">  Please click here to go to our Github </a> </p>
+                        <p><a href="https://github.com/YvanSchaaik/dog-flash-card-app/" target="blank">  Please click here to go to our Github </a> </p>
                     </div>
                     <div className='homeImg'>
                         <img alt='cuteDog' src="https://images.dog.ceo/breeds/mountain-bernese/n02107683_333.jpg" >

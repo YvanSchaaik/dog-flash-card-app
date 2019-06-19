@@ -1,30 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import * as request from 'superagent'
 import Game1 from './Game1'
-import { addDog, setDogs } from '../../actions/gameOneActions'
+import { addDog, getDogs } from '../../actions/gameOneActions'
 
 export class Game1Container extends Component {
-  state = {};
 
   componentDidMount = () => {
-    request('https://dog.ceo/api/breed/hound/images')
-      .then(response => {
-        console.log('image', response.body.message[0])
-        this.setState({
-        load: true,
-        gameImage: response.body.message[0]
-      })})
-
-      this.props.addDog('pedro', 'action')
-      this.props.addDog('Maria', 'otra')
-      this.props.setDogs()
+    const breed = 'hound'
+    this.props.getDogs(breed)
   }
 
   render() {
-    if (!this.state.load) return 'Loading...'
-    return <Game1 image={ this.state.gameImage }/>
-
+    //if (!this.state.load) return 'Loading...'
+    console.log('CALLING STATE', this.props.ImageToGuess) 
+    return <Game1 image={ this.props.ImageToGuess }/>
+   
   }
 }
 
@@ -34,4 +24,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(null, { addDog, setDogs })(Game1Container)
+export default connect(mapStateToProps, { addDog, getDogs })(Game1Container)

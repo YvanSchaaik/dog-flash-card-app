@@ -4,17 +4,15 @@ import { connect } from 'react-redux'
 import { getDogImages } from '../actions/actions'
 
 class DogBreedImagesContainer extends Component {
-    state = { images: null }
-
     componentDidMount() {
         this.props.getDogImages(this.props.match.params.breed)
 
     }
-
     render() {
         return <DogBreedImages images={this.props.images} breed={this.props.match.params.breed} />
     }
 }
+
 const mapDispatchToProps = { getDogImages }
 
 const mapStateToProps = (state) => {

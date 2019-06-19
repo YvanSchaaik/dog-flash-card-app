@@ -42,10 +42,7 @@ export function getDogs() {
     return function (dispatch) {
         request('https://dog.ceo/api/breed/' + link +  '/images')
             .then(response => {
-               // const action = ((response.body.message))
-                //console.log("action.lengt", action.payload.dogsImgs.length)
                 const maxTenDogImgs = response.body.message.slice(0,10)
-                console.log("max10", maxTenDogImgs)
                 const action = setDogImage(maxTenDogImgs)
                 return dispatch(action)
             })

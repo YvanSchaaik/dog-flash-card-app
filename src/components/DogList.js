@@ -3,12 +3,6 @@ import { Link } from "react-router-dom"
 
 
 export default class DogsList extends Component {
-  // renderDogBreed(breed) {
-  //   return <li key={breed}><Link to={`/dog-breeds/${breed}`}>{breed}</Link></li>
-  // }
-  // this.props.getDogs && this.props.getDogs.map(breed => <li key={breed}>
-  //   <Link to={`/dog-breeds/${breed}`}>{breed}</Link></li>)
-
   render() {
     return (
       <div className="dogs-list">

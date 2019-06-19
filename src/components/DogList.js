@@ -10,7 +10,7 @@ export default class DogsList extends Component {
         {
           this.props.dogBreeds && this.props.dogBreeds.map((breed) =>{
             return <li key={breed}>
-            <Link to={`/dog-breeds/${breed}`}>{breed}</Link>
+            <Link to={`/${breed}`}>{breed}</Link>
             </li>
           })
         }

@@ -9,7 +9,7 @@ export class DogListContainer extends Component {
     }
 
     render () {
-        return <DogsList dogBreeds={this.props.dogs}/>
+        return <DogsList dogBreeds={this.props.dog.dogs}/>
     }
 }
 
@@ -18,7 +18,7 @@ const mapDispatchToProps = { getDogs }
 const mapStateToProps = (state) => {
     console.log('state?', state)
     return {
-        dogs: state.dogs
+        dog: state.DogListReducer
     } 
  }
 

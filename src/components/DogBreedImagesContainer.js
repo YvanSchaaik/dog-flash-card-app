@@ -5,7 +5,15 @@ import request from 'superagent'
 export default class DogBreedImagesContainer extends Component {
     state = { images: null }
 
-    componentDidMount() {
+    // componentDidMount() {
+    //     const breed = this.props.match.params.breed
+    //     request
+    //         .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images`)
+    //         .then(response => this.updateImages(response.body.message))
+    //         .catch(console.error)
+    // }
+
+      componentDidMount() {
         const breed = this.props.match.params.breed
         request
             .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images`)

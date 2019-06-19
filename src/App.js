@@ -12,30 +12,20 @@ import Game1 from './components/games/Game1';
 import DogListContainer from './components/DoglistContainer';
 import Info from './components/Info';
 
-
-
-
 class App extends React.Component {
   render(){
     return (
-      <Provider store= {store}>
+      <Provider store={store}>
         <div className="App">
           <Navbar />
-          
           <Route exact path ='/' component={Home}/>
-          <Route path="dog-list" component={DogListContainer} />
-          <Route path="/dog-breeds/:breed" component={DogBreedImagesContainer}/>
+          <Route path="/dog-image/:breed" component={DogBreedImagesContainer}/>
           <Route path="/info" component={Info} />
-          <Route exact path ='/breeds' component={DogListContainer}/>
+          <Route path ='/breeds' component={DogListContainer}/>
           <Route path="/games" component={GamesContainer}/>
           <Route path="/game1" component={Game1}/>
-
-
-       
         </div>
       </Provider>
-       
-
     );
   }
 }

@@ -5,7 +5,7 @@ import request from 'superagent'
 export default class DogBreedImagesContainer extends Component {
     state = { images: null }
 
-    componentDidMount() {
+      componentDidMount() {
         const breed = this.props.match.params.breed
         request
             .get(`https://dog.ceo/api/breed/${encodeURIComponent(breed)}/images`)

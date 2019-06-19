@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as request from 'superagent'
 import Game1 from './Game1'
-import {helloWorld} from '../../actions/gameOneActions'
+import { addDog, setDogs } from '../../actions/gameOneActions'
 
 export class Game1Container extends Component {
   state = {};
@@ -16,7 +16,9 @@ export class Game1Container extends Component {
         gameImage: response.body.message[0]
       })})
 
-      this.props.helloWorld()
+      this.props.addDog('pedro', 'action')
+      this.props.addDog('Maria', 'otra')
+      this.props.setDogs()
   }
 
   render() {
@@ -26,4 +28,10 @@ export class Game1Container extends Component {
   }
 }
 
-export default connect(null, {helloWorld})(Game1Container)
+const mapStateToProps = (state) => {
+  return {
+    ImageToGuess: state.GameOne
+  }
+}
+
+export default connect(null, { addDog, setDogs })(Game1Container)

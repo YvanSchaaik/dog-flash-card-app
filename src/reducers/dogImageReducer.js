@@ -2,6 +2,7 @@ export default (state = [], action = {}) => {
   switch (action.type) {
 
     case 'GET_DOGIMG':
+      console.log("this red is called")
       return state;
     
     case 'ADD_DOG_IMG_LIST':

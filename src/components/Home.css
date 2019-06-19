@@ -1,0 +1,29 @@
+.Home {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+.homeContainer{
+  margin-top: 2em;
+}
+
+.homeMain {
+    display: flex;
+    margin: 10px;
+}
+.homeIntro{
+
+  text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  .homeMain {
+    float: none;
+    width: 100%;
+    flex-direction: column;
+  }
+}
+  
+ 

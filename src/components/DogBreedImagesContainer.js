@@ -17,7 +17,7 @@ const mapDispatchToProps = { getDogImages }
 
 const mapStateToProps = (state) => {
     return {
-        images: state.DogImageReducer
+        images: state.dogImageReducer
     }
 }
 

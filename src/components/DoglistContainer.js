@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import request from 'superagent'
 import DogsList from './DogList';
+import {connect} from 'react-redux'
 
 
-export default class DogListContainer extends Component {
+class DogListContainer extends Component {
 
     state = {
     dogBreeds: null,
@@ -32,3 +33,12 @@ render() {
 }
 
 }
+
+const mapStateToProps = (reduxState) => {
+    console.log("mapState called ")
+    return {
+        albums: reduxState.albums
+    }
+  }
+  
+  export default connect(mapStateToProps, null)(DogListContainer)

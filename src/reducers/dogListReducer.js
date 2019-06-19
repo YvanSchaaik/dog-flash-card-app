@@ -1,3 +1,10 @@
 export default (state = [], action = {}) => {
-  return state
+
+  switch (action.type) {
+    case "GET_BREEDS_LIST":
+      console.log("Reducer called w. action breedslist ")
+      return state
+    default:
+      return state
+  }
 }

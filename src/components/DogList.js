@@ -23,3 +23,4 @@ export default class DogsList extends Component {
     )
   }
 }
+

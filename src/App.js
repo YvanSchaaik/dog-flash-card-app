@@ -12,13 +12,10 @@ import DogListContainer from './components/DoglistContainer';
 import Footer from './components/Footer'
 import Info from './components/Info'
 
-
-
-
 class App extends React.Component {
   render(){
     return (
-      <Provider store= {store}>
+      <Provider store={store}>
         <div className="App">
           <Navbar />
           <Route exact path ='/' component={Home}/>
@@ -27,13 +24,9 @@ class App extends React.Component {
           <Route path ='/breeds' component={DogListContainer}/>
           <Route path="/games" component={GamesContainer}/>
           <Route path="/game1" component={Game1}/>
-
           <Footer />
-       
         </div>
       </Provider>
-       
-
     );
   }
 }

@@ -1,4 +1,4 @@
-import {ADD_DOG, SET_DOGS} from '../actions/gameOneActions'
+import {ADD_DOG, SET_SOLUTION} from '../actions/gameOneActions'
 
 
 export default (state = [], action = {}) => {
@@ -8,7 +8,7 @@ export default (state = [], action = {}) => {
         ...state,
         action.payload
       ]
-    case SET_DOGS:
+    case SET_SOLUTION:
       return action.payload
   
     default:

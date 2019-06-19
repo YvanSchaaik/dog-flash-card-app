@@ -1,7 +1,7 @@
 import * as request from 'superagent'
 
 export const ADD_DOG = 'ADD_DOG'
-export const SET_DOGS = 'SET_DOGS'
+export const SET_SOLUTION = 'SET_SOLUTION'
 export const IMAGE_GUESS = 'IMAGE_GUESS'
 
 export function addDog(first, last){
@@ -14,9 +14,9 @@ export function addDog(first, last){
   }
 }
 
-export function setDogs(image, breed){
+export function setSolution(image, breed){
   return {
-    type: SET_DOGS,
+    type: SET_SOLUTION,
     payload: {
       image,
       breed
@@ -30,7 +30,7 @@ export function guessBreed(breed){
     .then(response => {
       const random_num = Math.floor((Math.random() * response.body.message.length))
       
-      dispatch(setDogs(response.body.message[random_num], breed))
+      dispatch(setSolution(response.body.message[random_num], breed))
     })
   }
 }

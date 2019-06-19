@@ -5,7 +5,8 @@ export default (state = [], action = {}) => {
       return state;
     
     case 'ADD_DOG_IMG_LIST':
-      return [...state, ...action.payload.dogsImgs]
+      //return [...state, ...action.payload.dogsImgs]
+      return [ ...action.payload.dogsImgs]
     
       default:
       return state;

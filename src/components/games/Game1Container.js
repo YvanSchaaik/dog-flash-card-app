@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import * as request from 'superagent'
 import Game1 from './Game1'
+import {helloWorld} from '../../actions/gameOneActions'
 
-export default class Game1Container extends Component {
+export class Game1Container extends Component {
   state = {};
 
   componentDidMount = () => {
@@ -13,11 +15,15 @@ export default class Game1Container extends Component {
         load: true,
         gameImage: response.body.message[0]
       })})
-      
+
+      this.props.helloWorld()
   }
+
   render() {
     if (!this.state.load) return 'Loading...'
-    return <Game1 image={this.state.gameImage}/>
+    return <Game1 image={ this.state.gameImage }/>
 
   }
 }
+
+export default connect(null, {helloWorld})(Game1Container)

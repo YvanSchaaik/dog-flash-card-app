@@ -7,16 +7,14 @@ export class Game1Container extends Component {
 
   componentDidMount = () => {
     this.props.getBreedsAndPickOne()
-
   }
 
   render() {
     if (!this.props.gameOne.solution || !this.props.gameOne.breeds) return 'Loading...'
-
+    
     return (
       <Game1 solution={ this.props.gameOne.solution } />
     )
-   
   }
 }
 

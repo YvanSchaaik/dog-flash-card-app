@@ -6,20 +6,31 @@ import { addDog, guessBreed, getBreeds, getBreedsAndPickThree } from '../../acti
 export class Game2Container extends Component {
 
   state = {
-      wrong: this.wrong,
-      good: this.solution,
+    score: {
+      correct: 0,
+      wrong: 0
+    },
+    breedsPlayed: []
   }
+
 
   wrong = () => {
     console.log("444")
     this.setState({
-      active: !this.state.active
+      score: {
+        correct: this.state.score.correct + 1,
+        wrong: this.state.score.wrong
+      }
     })
+
   }
   solution = () => {
     console.log("555")
     this.setState({
-      active: !this.state.active
+      score: {
+        correct: this.state.score.correct ,
+        wrong: this.state.score.wrong +1
+      }
     })
   }
 
@@ -28,10 +39,15 @@ export class Game2Container extends Component {
   }
 
   render() {
+    console.log("score:", this.state.score.wrong, this.state.score.correct)
     if (!this.props.gameTwo.solution || !this.props.gameTwo.breeds) return 'Loading...'
 
     return (
-      <Game2 solution={this.props.gameTwo.solution} random1Img={this.props.gameTwo.random1} random2Img={this.props.gameTwo.random2} good={this.state.good} wrong={this.state.wrong} />
+      <Game2 solution={this.props.gameTwo.solution}
+        random1Img={this.props.gameTwo.random1}
+        random2Img={this.props.gameTwo.random2}
+        good={this.solution}
+        wrong={this.wrong} />
 
     )
   }

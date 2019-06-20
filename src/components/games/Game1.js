@@ -9,11 +9,9 @@ export default class Game1 extends Component {
     if(answer === this.props.solution.breed) {
       alert('Correct Answer!') 
       console.log('When is this happening??')
-      this.forceUpdate()
       //Add +1 in the score
       this.props.correct()
       // dispatch an action to change the state of the component.
-
     } else {
       alert('Wrong Answer, Try Again!')
     }
@@ -31,7 +29,7 @@ export default class Game1 extends Component {
         <div className="optionsButtons">
 
         {
-          this.props.options.map( map => <button key={map} onClick={() => this.checkAnswer(map)}> {map} </button>)
+          this.props.options.map( (option, index) => <button onClick={() => this.checkAnswer(option)} key={index}> {option} </button>)
         }
 
         </div>

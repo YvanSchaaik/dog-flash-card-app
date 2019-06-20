@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Game2 from './Game2'
-import { addDog, guessBreed, getBreeds, getBreedsAndPickThree } from '../../actions/gameTwoActions'
+import {  getBreedsAndPickThree } from '../../actions/gameTwoActions'
 
 export class Game2Container extends Component {
 
@@ -86,12 +86,11 @@ function shakeArr(arr) {
 }
 
 const mapStateToProps = (state) => {
-  //console.log("MSTP G2 ", state)
   return {
     gameTwo: state.GameTwo
   }
 }
 
-export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickThree })(Game2Container)
+export default connect(mapStateToProps, { getBreedsAndPickThree })(Game2Container)
 
 

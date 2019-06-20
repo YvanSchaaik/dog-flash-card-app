@@ -1,18 +1,9 @@
-import { ADD_DOG, SET_SOLUTION, SET_BREEDS, SET_RANDOMSOL } from '../actions/gameTwoActions'
-
+import {  SET_BREEDS, SET_RANDOMSOL } from '../actions/gameTwoActions'
 
 export default (state = {}, action = {}) => {
   switch (action.type) {
-    case ADD_DOG:
-      return [
-        ...state,
-        action.payload
-      ]
-    case SET_SOLUTION:
-      return {
-        ...state,
-        solution: action.payload
-      }
+    
+   
     case SET_RANDOMSOL:
       return {
         ...state,

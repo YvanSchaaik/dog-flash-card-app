@@ -6,7 +6,7 @@ import { getTenDogImages } from '../actions/actions'
 
 class DogBreedImagesContainer extends Component {
     componentDidMount() {
-        this.props.getTenDogImages(this.props.match.params.breed)
+        this.props.getTenDogImages(this.props.match.params.breed.toLowerCase())
 
     }
     render() {

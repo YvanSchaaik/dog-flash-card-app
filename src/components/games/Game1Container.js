@@ -30,9 +30,15 @@ export class Game1Container extends Component {
         wrong: this.state.score.wrong + 1
       }}) 
     }
+    //added by Jeroen (begin)
+    //console.log("G1 props" ,) 
+    if (this.props.game3active === true) {
+      this.props.game3Renew()
+    } else {
+      this.props.getBreedsAndPickOne()
+    }
+    //added by Jeroen (end)
     
-
-    this.props.getBreedsAndPickOne()
   }
 
   componentDidMount = () => {

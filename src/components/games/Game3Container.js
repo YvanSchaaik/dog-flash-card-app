@@ -1,59 +1,53 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import Game2 from './Game2'
+
 import { addDog, guessBreed, getBreeds, getBreedsAndPickThree } from '../../actions/gameTwoActions'
 
-export class Game2Container extends Component {
+import Game1Container from './Game1Container'
+import Game2Container from './Game2Container'
+
+
+ export default class Game3Container extends Component {
 
   state = {
     score: {
       correct: 0,
       wrong: 0
     },
-    breedsPlayed: []
+    breedsPlayed: [],
+    gamesPlayed: 0
   }
 
 
-  wrong = () => {
+  reRender = () => {
     this.setState({
-      score: {
-        correct: this.state.score.correct ,
-        wrong: this.state.score.wrong + 1
-      }
-    })
-    this.props.getBreedsAndPickThree()
-  }
-  solution = () => {
-    this.setState({
-      score: {
-        correct: this.state.score.correct + 1 ,
-        wrong: this.state.score.wrong 
-      }
-    })
-    this.props.getBreedsAndPickThree()
+      gamesPlayed: this.gamesPlayed + 1}  
+    )
   }
 
   componentDidMount = () => {
-    this.props.getBreedsAndPickThree()
+    //this.props.getBreedsAndPickThree()
   }
 
   render() {
-    if (!this.props.gameTwo.solution || !this.props.gameTwo.breeds) return 'Loading...'
-
+    //if (!this.props.gameTwo.solution || !this.props.gameTwo.breeds) return 'Loading...'
+    const renderElement = Math.floor((Math.random() * 2))
+    const gameArr = [<Game1Container game3active={true} game3Renew={this.reRender} />,<Game2Container game3active={true} game3Renew={this.reRender} />]
     return (
-      <p> Hallo!</p>
 
+        gameArr[renderElement]
+        
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  //console.log("MSTP G2 ", state)
-  return {
-    gameTwo: state.GameTwo
-  }
-}
+// const mapStateToProps = (state) => {
+//   //console.log("MSTP G2 ", state)
+//   return {
+//     gameTwo: state.GameTwo
+//   }
+// }
 
-export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickThree })(Game2Container)
+//export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickThree })(Game2Container)
 
 

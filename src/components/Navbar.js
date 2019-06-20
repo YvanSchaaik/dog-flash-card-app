@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import GameStatsContainer from './GameStatsContainer';
 
 export default class Navbar extends Component {
   render() {
@@ -11,6 +12,7 @@ export default class Navbar extends Component {
             <li className="Nav-pill"> <Link to="/breeds">Breeds</Link></li>
             <li style={{float:"right"}} className="Nav-pill"><Link to="/games" >Play</Link></li>
             <li className="Nav-pill"><Link to='/info'>Info</Link></li>
+            <GameStatsContainer />
           </ul>
       </div>
               )

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import DogBreedImages from './DogBreedImages'
 import { connect } from 'react-redux'
-import { getDogImages } from '../actions/actions'
 import { getTenDogImages } from '../actions/actions'
 
 

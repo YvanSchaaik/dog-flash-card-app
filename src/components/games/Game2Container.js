@@ -15,23 +15,22 @@ export class Game2Container extends Component {
 
 
   wrong = () => {
-    console.log("444")
     this.setState({
       score: {
         correct: this.state.score.correct + 1,
         wrong: this.state.score.wrong
       }
     })
-
+    this.props.getBreedsAndPickThree()
   }
   solution = () => {
-    console.log("555")
     this.setState({
       score: {
         correct: this.state.score.correct ,
-        wrong: this.state.score.wrong +1
+        wrong: this.state.score.wrong + 1
       }
     })
+    this.props.getBreedsAndPickThree()
   }
 
   componentDidMount = () => {
@@ -48,7 +47,6 @@ export class Game2Container extends Component {
         random2Img={this.props.gameTwo.random2}
         good={this.solution}
         wrong={this.wrong} />
-
     )
   }
 }

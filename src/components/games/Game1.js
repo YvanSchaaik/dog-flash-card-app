@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import './Game1.css'
 
 export default class Game1 extends Component {
-  state = {
-    addClass: false
-  }
 
   shuffle = (arr) => {
     arr.sort(() => Math.random() - 0.5);
@@ -29,6 +26,7 @@ export default class Game1 extends Component {
 
   render() {
     const options = this.props.options
+    console.log('OPTIONS in game1', options)
     this.shuffle(options)
 
     return (

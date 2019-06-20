@@ -27,7 +27,6 @@ export class Game1Container extends Component {
       }}) 
     }
     
-
     this.props.getBreedsAndPickOne()
   }
 
@@ -38,17 +37,21 @@ export class Game1Container extends Component {
   getOptions = () => {
     const sol_breed = this.props.gameOne.solution.breed
 
-    if(!this.state.breedsPlayed.includes(sol_breed)){
-      this.setState({breedsPlayed: this.state.breedsPlayed.concat(sol_breed)})
-    }
-
     //Breeds filter the array without the sol breed to avoid duplications
     const breeds = this.props.gameOne.breeds.filter(breed => breed !== sol_breed)
   
     const random_num = Math.floor(Math.random() * breeds.length )
     const random_num2 = Math.floor(Math.random() * breeds.length )
 
-    const options = [ sol_breed, breeds[random_num], breeds[random_num2]]
+    let options = [ sol_breed, breeds[random_num], breeds[random_num2]]
+
+    if(!this.state.breedsPlayed.includes(sol_breed)){
+      this.setState({breedsPlayed: this.state.breedsPlayed.concat(sol_breed)})
+
+      options.splice(-1,1)
+
+      return options
+    } 
 
     return options
   }
@@ -57,7 +60,9 @@ export class Game1Container extends Component {
     if (!this.props.gameOne.solution || !this.props.gameOne.breeds) return 'Loading...'
 
     const options = this.getOptions()
-    console.log('breedsPlayed', this.state.breedsPlayed)
+    console.log('TESTING', options)
+
+
     return (
       <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.state.score}/>
     )

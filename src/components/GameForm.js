@@ -8,7 +8,10 @@ export default class GameForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.setState({ [this.state.name.concat(event.target.value)]})
+        this.setState({
+            name: this.state.input,
+            input: ''
+        })
 
     }
 

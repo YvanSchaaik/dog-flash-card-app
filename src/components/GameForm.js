@@ -1,38 +1,21 @@
 import React, { Component } from 'react'
 
 export default class GameForm extends Component {
-    state = {
-        input : '',
-        name : ''
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-        this.setState({
-            name: this.state.input,
-            input: ''
-        })
-
-    }
-
-    handleChange = (event) => {
-        this.setState({input : event.target.value})   
-    }
     
     render() {
         return (
             <div className="nameForm">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.props.handleSubmit}>
                 <label>
-                <p>Name: {this.state.name}</p>
+                <p>Name: {this.props.name}</p>
                 <input
                 type="text"
                 name="name"
-                onChange={this.handleChange}
-                value={this.state.input}
+                onChange={this.props.handleChange}
+                value={this.props.input}
                 />
                 </label>
-                <button type='submit' onClick={this.handleSubmit}>Submit</button>
+                <button type='submit' onClick={this.props.handleSubmit}>Submit</button>
             </form>
             </div>
         )

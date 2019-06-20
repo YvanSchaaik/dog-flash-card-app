@@ -1,46 +1,36 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-export class GameForm extends Component {
-    static propTypes = {
-        addPlayer : PropTypes.func.isRequired
-    }
-
+export default class GameForm extends Component {
     state = {
+        input : '',
         name : ''
     }
 
-handleSubmit = (event) => {
-    event.preventDefault()
-    this.props.addPlayer(this.state.name = event.target.value)
-    console.log(`Submitting form creates a ${this.state.name}`)
-}
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.setState({ [this.state.name.concat(event.target.value)]})
 
-handleChange = (event) => {
-    this.setState({
-        [event.target.name] : event.target.value
-    })
-    console.log('Value form!',event.target.value)
+    }
 
-}
-
+    handleChange = (event) => {
+        this.setState({input : event.target.value})   
+    }
+    
     render() {
-        console.log( 'test',this.state.name)
         return (
             <div className="nameForm">
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Name: 
-                        <input
-                        type="text"
-                        name="name"
-                        onChange={this.handleChange}
-                        value={this.state.name}
-                        />
-                        
-                    </label>
-                    <button type="submit">Submit</button>
-                </form>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                <p>Name: {this.state.name}</p>
+                <input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value={this.state.input}
+                />
+                </label>
+                <button type='submit' onClick={this.handleSubmit}>Submit</button>
+            </form>
             </div>
         )
     }

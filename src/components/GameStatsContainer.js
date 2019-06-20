@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import GameStats from './GameStats';
+import GameForm from './GameForm';
 
 export default class GameStatsContainer extends Component {
+
     render() {
         return (
             <div>
-            <GameStats />
+            <GameForm />
             </div>
         )
     }

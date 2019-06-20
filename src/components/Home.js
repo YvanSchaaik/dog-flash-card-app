@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import './Home.css'
+import GameStatsContainer from './GameStatsContainer'
 
 export class Home extends Component {
     render() {
         return (
             <div className='homeContainer'>
+                <GameStatsContainer />
                 <h1>HomePage</h1>
                 <div className='homeMain'>
                     <div className="homeIntro">

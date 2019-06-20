@@ -7,7 +7,7 @@ export default class GamesContainer extends Component {
       <div>
                
           <h1> <Link to="/game1">Game #1 </Link></h1>
-          <h1> Game #2 </h1>
+          <h1> <Link to="/game2">Game #2 </Link></h1>
           <h1> Game #3 </h1>
 
       </div>

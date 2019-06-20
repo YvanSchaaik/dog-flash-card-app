@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import './DogList.css'
 
 
 export default class DogsList extends Component {

@@ -10,9 +10,7 @@ export default class Game1 extends Component {
     arr.sort(() => Math.random() - 0.5);
   }
 
-  checkAnswer = (answer) => {
-    console.log('Answer is: ', answer )
-    
+  checkAnswer = (answer) => {   
     if(answer === this.props.solution.breed) {
       alert('Correct Answer!') 
       this.props.correct(true)
@@ -21,7 +19,6 @@ export default class Game1 extends Component {
       alert(`Wrong Answer, \nThe correct answer was: \n\n${this.props.solution.breed}. \n\nTry Again!`)
 
       this.props.correct(false)
-
     }
 
   }

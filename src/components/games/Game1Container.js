@@ -14,8 +14,6 @@ export class Game1Container extends Component {
 
   nextQuestion(answer_status){
     if(answer_status) {
-      console.log('I am in correct answer')
-
       this.setState({score: {
         correct: this.state.score.correct + 1,
         wrong: this.state.score.wrong
@@ -23,8 +21,6 @@ export class Game1Container extends Component {
     } 
     
     if(!answer_status) {
-      console.log('I am in INCORRECT answer')
-
       this.setState({score: {
         correct: this.state.score.correct,
         wrong: this.state.score.wrong + 1
@@ -50,14 +46,10 @@ export class Game1Container extends Component {
 
     const options = [ sol_breed, breeds[random_num], breeds[random_num2]]
 
-    console.log('Options', options)
-
     return options
   }
 
   render() {
-    console.log('forceUpdate works????')
-
     if (!this.props.gameOne.solution || !this.props.gameOne.breeds) return 'Loading...'
 
     const options = this.getOptions()

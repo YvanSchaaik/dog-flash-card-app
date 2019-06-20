@@ -15,6 +15,7 @@ export default class Game1 extends Component {
     if(answer === this.props.solution.breed) {
       alert('Correct Answer!') 
       this.props.correct(true)
+      console.log('is it working??')
 
     } else {
       alert(`Wrong Answer, \nThe correct answer was: \n\n${this.props.solution.breed}. \n\nTry Again!`)

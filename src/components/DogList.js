@@ -9,10 +9,15 @@ export default class DogsList extends Component {
       <div className="dogs-list">
         <h1>Dogs List</h1>
         {
-          this.props.dogBreeds && this.props.dogBreeds.map((breed) =>{
-            return <li key={breed}>
-            <Link to={`dog-breeds/${breed}`}>{breed}</Link>
-            </li>
+          this.props.dogBreeds && this.props.dogBreeds.map((breed) => {
+            return <div className="dogListItem">
+              
+
+                <img src="icon.png" className="dogListItemIcon" alt=" " key={breed} />
+              
+              <Link to={`dog-breeds/${breed}`}>{breed}</Link>
+
+            </div>
           })
         }
 

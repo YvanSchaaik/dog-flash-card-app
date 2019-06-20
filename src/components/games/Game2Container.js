@@ -60,12 +60,29 @@ export class Game2Container extends Component {
     ]
 
 
-    return (
-    
 
-      <Game2 dog={dogCards} score={this.state.score} solution={this.props.gameTwo.solution}/>      
+   shakeArr(dogCards)
+  
+
+    return (
+      <Game2 dog={dogCards} score={this.state.score} solution={this.props.gameTwo.solution} />
     )
   }
+}
+function shakeArr(arr) {
+  let index = arr.length
+  let temporaryValue
+  let randomIndex;
+  while (0 !== index) {
+    randomIndex = Math.floor(Math.random() * index);
+    index -= 1;
+
+    temporaryValue = arr[index];
+    arr[index] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue;
+  }
+
+  return arr;
 }
 
 const mapStateToProps = (state) => {

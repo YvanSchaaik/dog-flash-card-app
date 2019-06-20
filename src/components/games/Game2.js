@@ -11,7 +11,7 @@ state = { active: true }
       <div>
         <h1>This is the Game #2</h1>
         <p> you identified {this.props.score.wrong} wrong, and {this.props.score.correct} right good!       </p>
-        <p>Select the picture containing a {this.props.solution.breed} dog</p>
+        <p>Select the picture containing a< strong> {this.props.solution.breed} </strong> dog </p>
         <div className="Game2Solutions'">
            
            

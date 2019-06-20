@@ -9,6 +9,7 @@ import DogBreedImagesContainer from './components/DogBreedImagesContainer'
 import GamesContainer from './components/GamesContainer';
 import Game1Container from './components/games/Game1Container';
 import Game2Container from './components/games/Game2Container'
+import Game3Container from './components/games/Game3Container'
 import DogListContainer from './components/DoglistContainer';
 import Footer from './components/Footer'
 import Info from './components/Info'
@@ -27,6 +28,7 @@ class App extends React.Component {
           <Route path="/games" component={GamesContainer}/>
           <Route path="/game1" component={Game1Container}/>
           <Route path="/game2" component={Game2Container}/>
+          <Route path="/game3" component={Game3Container}/>
           <Footer />
         </div>
       </Provider>

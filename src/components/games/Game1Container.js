@@ -4,12 +4,12 @@ import Game1 from './Game1'
 import { addDog, guessBreed, getBreeds, getBreedsAndPickOne } from '../../actions/gameOneActions'
 
 export class Game1Container extends Component {
-
   state = {
     score: {
       correct: 0,
       wrong: 0
-    }
+    },
+    breedsPlayed: []
   }
 
   nextQuestion(answer_status){
@@ -38,6 +38,10 @@ export class Game1Container extends Component {
   getOptions = () => {
     const sol_breed = this.props.gameOne.solution.breed
 
+    if(!this.state.breedsPlayed.includes(sol_breed)){
+      this.setState({breedsPlayed: this.state.breedsPlayed.concat(sol_breed)})
+    }
+
     //Breeds filter the array without the sol breed to avoid duplications
     const breeds = this.props.gameOne.breeds.filter(breed => breed !== sol_breed)
   
@@ -53,7 +57,7 @@ export class Game1Container extends Component {
     if (!this.props.gameOne.solution || !this.props.gameOne.breeds) return 'Loading...'
 
     const options = this.getOptions()
-
+    console.log('breedsPlayed', this.state.breedsPlayed)
     return (
       <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.state.score}/>
     )

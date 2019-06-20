@@ -17,8 +17,8 @@ export class Game2Container extends Component {
   wrong = () => {
     this.setState({
       score: {
-        correct: this.state.score.correct + 1,
-        wrong: this.state.score.wrong
+        correct: this.state.score.correct ,
+        wrong: this.state.score.wrong + 1
       }
     })
     this.props.getBreedsAndPickThree()
@@ -26,8 +26,8 @@ export class Game2Container extends Component {
   solution = () => {
     this.setState({
       score: {
-        correct: this.state.score.correct ,
-        wrong: this.state.score.wrong + 1
+        correct: this.state.score.correct + 1 ,
+        wrong: this.state.score.wrong 
       }
     })
     this.props.getBreedsAndPickThree()
@@ -38,7 +38,6 @@ export class Game2Container extends Component {
   }
 
   render() {
-    console.log("score:", this.state.score.wrong, this.state.score.correct)
     if (!this.props.gameTwo.solution || !this.props.gameTwo.breeds) return 'Loading...'
 
     return (
@@ -46,7 +45,8 @@ export class Game2Container extends Component {
         random1Img={this.props.gameTwo.random1}
         random2Img={this.props.gameTwo.random2}
         good={this.solution}
-        wrong={this.wrong} />
+        wrong={this.wrong}
+        score={this.state.score} />
     )
   }
 }

@@ -10,10 +10,10 @@ export default class DogsList extends Component {
         <h1>Dogs List</h1>
         {
           this.props.dogBreeds && this.props.dogBreeds.map((breed) => {
-            return <div className="dogListItem">
+            return <div className="dogListItem" key={breed+"4"}>
               
 
-                <img src="icon.png" className="dogListItemIcon" alt=" " key={breed} />
+                <img src="icon.png" className="dogListItemIcon" alt=" "  />
               
               <Link to={`dog-breeds/${breed}`}>{breed}</Link>
 

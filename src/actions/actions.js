@@ -24,7 +24,9 @@ export function getDogs() {
     return function (dispatch) {
         request('https://dog.ceo/api/breeds/list/all')
             .then(response => {
-                const action = setDogs(Object.keys(response.body.message))
+                const data = Object.keys(response.body.message)
+                const capitalData = data.map(dog => dog.charAt(0).toUpperCase() + dog.slice(1) )
+                const action = setDogs((capitalData))
                 return dispatch(action)
             })
     }

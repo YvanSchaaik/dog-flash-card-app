@@ -10,6 +10,16 @@ export function setDogs(dogs) {
     }
 }
 
+export function setDogImage(dogs) {
+    
+  return {
+      type: ADD_DOG_IMG_LIST,
+      payload: {
+          dogsImgs: dogs
+      }
+  }
+}
+
 export function getDogs() {
     return function (dispatch) {
         request('https://dog.ceo/api/breeds/list/all')
@@ -19,4 +29,26 @@ export function getDogs() {
             })
     }
   }
+  export function getDogImages(link) {
+    return function (dispatch) {
+        request('https://dog.ceo/api/breed/' + link +  '/images')
+            .then(response => {
+                const action = setDogImage((response.body.message))
+                return dispatch(action)
+            })
+    }
+  }
+  export function getTenDogImages(link) {
+    return function (dispatch) {
+        request('https://dog.ceo/api/breed/' + link +  '/images')
+            .then(response => {
+                const maxTenDogImgs = response.body.message.slice(0,10)
+                const action = setDogImage(maxTenDogImgs)
+                return dispatch(action)
+            })
+    }
+  }
+
 export const ADD_DOG_LIST = 'ADD_DOG_LIST'
+export const GET_DOGIMG = 'GET_DOGIMG'
+export const ADD_DOG_IMG_LIST = 'ADD_DOG_IMG_LIST'

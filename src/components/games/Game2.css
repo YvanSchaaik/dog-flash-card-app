@@ -1,0 +1,14 @@
+.Game2Solutions{
+    display: flex;
+    flex-direction: row
+
+
+}
+.Game2Solutions img{
+    width: 20%;
+    display: flex;
+}
+.Game2DogImg{
+    margin: 10px;
+    width: 20%;
+}

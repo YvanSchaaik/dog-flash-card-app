@@ -6,6 +6,10 @@ export default class Game1 extends Component {
     addClass: false
   }
 
+  shuffle = (arr) => {
+    arr.sort(() => Math.random() - 0.5);
+  }
+
   checkAnswer = (answer) => {
     console.log('Answer is: ', answer )
     
@@ -23,6 +27,9 @@ export default class Game1 extends Component {
   }
 
   render() {
+    const options = this.props.options
+    this.shuffle(options)
+
     return (
       <div>
         <h1>This is the Game #1</h1>
@@ -33,7 +40,8 @@ export default class Game1 extends Component {
         <div className="optionsButtons">
 
         {
-          this.props.options.map( (option, index) => <button onClick={() => this.checkAnswer(option)} key={index}> {option} </button>)
+          
+          options.map( (option, index) => <button onClick={() => this.checkAnswer(option)} key={index}> {option} </button>)
         }
 
         </div>

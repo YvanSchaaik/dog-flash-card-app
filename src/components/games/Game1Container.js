@@ -6,11 +6,32 @@ import { addDog, guessBreed, getBreeds, getBreedsAndPickOne } from '../../action
 export class Game1Container extends Component {
 
   state = {
-    score: 0
+    score: {
+      correct: 0,
+      wrong: 0
+    }
   }
 
-  nextQuestion(){
-    this.setState({score: this.state.score + 1})
+  nextQuestion(answer_status){
+    if(answer_status) {
+      console.log('I am in correct answer')
+
+      this.setState({score: {
+        correct: this.state.score.correct + 1,
+        wrong: this.state.score.wrong
+      }}) 
+    } 
+    
+    if(!answer_status) {
+      console.log('I am in INCORRECT answer')
+
+      this.setState({score: {
+        correct: this.state.score.correct,
+        wrong: this.state.score.wrong + 1
+      }}) 
+    }
+    
+
     this.props.getBreedsAndPickOne()
   }
 
@@ -42,7 +63,7 @@ export class Game1Container extends Component {
     const options = this.getOptions()
 
     return (
-      <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ () => this.nextQuestion()} score={this.state.score}/>
+      <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.state.score}/>
     )
   }
 }

@@ -10,10 +10,12 @@ export default class Game1 extends Component {
       alert('Correct Answer!') 
       console.log('When is this happening??')
       //Add +1 in the score
-      this.props.correct()
+      this.props.correct(true)
       // dispatch an action to change the state of the component.
     } else {
       alert('Wrong Answer, Try Again!')
+      this.props.correct(false)
+
     }
 
   }
@@ -22,7 +24,7 @@ export default class Game1 extends Component {
     return (
       <div>
         <h1>This is the Game #1</h1>
-        <b>Score</b> {this.props.score}
+        <b>Score</b> Correct: {this.props.score.correct} / wrong: {this.props.score.wrong}
         <div>
         <img className="guessImage" src={this.props.solution.image} alt="Dog Breed to guess"/>
         <h3>Solution: {this.props.solution.breed}</h3>

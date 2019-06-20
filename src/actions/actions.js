@@ -38,6 +38,16 @@ export function getDogs() {
             })
     }
   }
+  export function getTenDogImages(link) {
+    return function (dispatch) {
+        request('https://dog.ceo/api/breed/' + link +  '/images')
+            .then(response => {
+                const maxTenDogImgs = response.body.message.slice(0,10)
+                const action = setDogImage(maxTenDogImgs)
+                return dispatch(action)
+            })
+    }
+  }
 
 export const ADD_DOG_LIST = 'ADD_DOG_LIST'
 export const GET_DOGIMG = 'GET_DOGIMG'

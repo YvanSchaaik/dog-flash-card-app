@@ -10,3 +10,11 @@
   margin: 10px;
   font-size: 1.3rem;
 }
+
+.correct {
+  background-color: #4BB543
+}
+
+.wrong {
+  background-color: #FC100D
+}

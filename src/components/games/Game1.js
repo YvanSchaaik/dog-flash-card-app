@@ -2,18 +2,20 @@ import React, { Component } from 'react'
 import './Game1.css'
 
 export default class Game1 extends Component {
+  state = {
+    addClass: false
+  }
 
   checkAnswer = (answer) => {
     console.log('Answer is: ', answer )
     
     if(answer === this.props.solution.breed) {
       alert('Correct Answer!') 
-      console.log('When is this happening??')
-      //Add +1 in the score
       this.props.correct(true)
-      // dispatch an action to change the state of the component.
+
     } else {
-      alert('Wrong Answer, Try Again!')
+      alert(`Wrong Answer, \nThe correct answer was: \n\n${this.props.solution.breed}. \n\nTry Again!`)
+
       this.props.correct(false)
 
     }

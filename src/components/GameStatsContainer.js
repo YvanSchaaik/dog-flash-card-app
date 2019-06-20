@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import GameForm from './GameForm';
 
 export default class GameStatsContainer extends Component {
     state = {
@@ -19,17 +18,23 @@ export default class GameStatsContainer extends Component {
     handleChange = (event) => {
         this.setState({input : event.target.value})   
     }
+
     render() {
         return (
-            <div>
-            <GameForm
-            value={this.state.input}
-            name={this.state.name}
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-            />
-            <button type='submit' onClick={this.props.handleSubmit}>Submit</button>
+            <div className="nameForm">
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                <input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                value={this.state.input}
+                />
+                </label>
+                <button type='submit' onClick={this.handleSubmit}>Submit</button>
+            </form>
             </div>
+            
         )
     }
 }

@@ -21,7 +21,7 @@ export default class DogsList extends Component {
           })
         }
 
-        {this.props.dogBreeds && 'Loading...'}
+        {!this.props.dogBreeds && 'Loading...'}
       </div>
     )
   }

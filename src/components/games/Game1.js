@@ -51,12 +51,12 @@ class Game1 extends Component {
       <div>
         <b>Score</b> Correct: {this.props.score.correct} / wrong: {this.props.score.wrong}
 
-        <p><b>Accuracy: 
+        <p><b>Accuracy:{' '}  
         { !this.props.userStats.accuracy ? 0 : this.props.userStats.accuracy } %</b></p>
 
         <div>
         <img className="guessImage" src={this.props.solution.image} alt="Dog Breed to guess"/>
-        <h3>Solution: {this.props.solution.breed}</h3>
+        
         <h3>hint: {this.props.hint}</h3>
         <div className="optionsButtons">
 

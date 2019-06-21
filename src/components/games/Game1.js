@@ -14,10 +14,6 @@ class Game1 extends Component {
     arr.sort(() => Math.random() - 0.5);
   }
 
-  // getPercentage = () => {
-  //   return Math.floor(this.props.score.correct/(this.props.score.wrong + this.props.score.correct) * 100)
-  //   console.log('Game1')
-  // }
 
   checkAnswer = (answer) => {   
 
@@ -35,17 +31,21 @@ class Game1 extends Component {
 
   }
 
+  componentDidMount() {
+
+
+  }
+
+
+
   render() {
     const options = this.props.options
     this.shuffle(options)
 
     const pointer = this.props.userStats;
 
-    if(pointer.score.wrong !== 0 && pointer.score.correct !== 0) {
-      this.props.getPercentage(this.props.userStats.score)
-    }
-
-    console.log('Game1 checing STATE', this.props.userStats.accuracy)
+    
+    console.log('Game1 checing Accuracy', this.props.userStats.accuracy)
 
     return (
       <div>

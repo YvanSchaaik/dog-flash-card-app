@@ -8,24 +8,24 @@ import {getPercentage} from '../../actions/actions'
 export class Game1Container extends Component {
 
   nextQuestion(answer_status){
-    if(answer_status) {
-      console.log('I am in correct answer')
-
-      this.props.updateScore({
-        correct: this.props.userStats.score.correct + 1,
-        wrong: this.props.userStats.score.wrong
-      })
-
-    } 
-    
-    if(!answer_status) {
-      console.log('I am in INCORRECT answer')
-
-      this.props.updateScore({
-        correct: this.props.userStats.score.correct,
-        wrong: this.props.userStats.score.wrong + 1
-      })
+    const correct = {
+      correct: this.props.userStats.score.correct + 1,
+      wrong: this.props.userStats.score.wrong
     }
+
+    const incorrect = {
+      correct: this.props.userStats.score.correct,
+      wrong: this.props.userStats.score.wrong + 1
+    }
+
+    const newScore = answer_status
+      ? correct
+      : incorrect
+
+    this.props.updateScore(newScore)
+
+    this.props.getPercentage(newScore)
+
     //added by Jeroen (begin)
     //console.log("G1 props" ,) 
     if (this.props.game3active === true) {
@@ -48,20 +48,18 @@ export class Game1Container extends Component {
 
     const options = [ sol_breed, breeds[random_num], breeds[random_num2]]
 
-    console.log('Options', options)
-
     return options
   }
 
   componentDidMount = () => {
     this.props.getBreedsAndPickOne()
     this.props.updateScore(this.props.userStats.score)
- 
-    
+
   }
 
+
+
   render() {
-    console.log('forceUpdate works????')
 
     if (!this.props.gameOne.solution || !this.props.gameOne.breeds) return 'Loading...'
 

@@ -19,6 +19,7 @@ export default (state = initialState, action={}) => {
       }
     case GET_PERCENTAGE:
       return {
+        ...state,
         accuracy: action.payload
       }
     default:

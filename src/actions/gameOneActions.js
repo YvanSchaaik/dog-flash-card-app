@@ -7,8 +7,6 @@ export const SET_BREEDS = 'SET_BREEDS'
 export const SET_RANDOM = 'SET_RANDOM'
 export const UPDATE_SCORE = 'UPDATE_SCORE'
 
-
-
 export function addDog(first, last){
   return {
     type: ADD_DOG,
@@ -82,7 +80,6 @@ export function getBreedsAndPickOne () {
       })
       .then(data => {
         const image = data.response.body.message[0]
-        console.log("data", data)
         dispatch(setSolution(image, data.choice))
 
       })

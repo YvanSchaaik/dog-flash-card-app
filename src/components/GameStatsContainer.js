@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { updateName } from '../actions/actions'
 
-export default class GameStatsContainer extends Component {
+
+export class GameStatsContainer extends Component {
     state = {
         input : '',
         name : ''
@@ -13,9 +16,11 @@ export default class GameStatsContainer extends Component {
             input: ''
         })
 
+        this.props.updateName(this.state.input)
     }
     handleChange = (event) => {
-        this.setState({input : event.target.value})   
+        this.setState({input : event.target.value})
+        
     }
 
     render() {
@@ -38,3 +43,5 @@ export default class GameStatsContainer extends Component {
         )
     }
 }
+
+export default connect(null, { updateName })(GameStatsContainer)

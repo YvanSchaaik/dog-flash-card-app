@@ -1,4 +1,4 @@
-import {GET_PERCENTAGE} from '../actions/actions'
+import {GET_PERCENTAGE, UPDATE_NAME} from '../actions/actions'
 import {UPDATE_SCORE} from '../actions/gameOneActions'
 
 const initialState = {
@@ -12,6 +12,11 @@ const initialState = {
 
 export default (state = initialState, action={}) => {
   switch (action.type){
+    case UPDATE_NAME:
+      return {
+        ...state,
+        name: action.payload
+      }
     case UPDATE_SCORE:
       return {
         ...state,

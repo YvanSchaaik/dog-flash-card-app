@@ -5,19 +5,14 @@ import { updateName } from '../actions/actions'
 
 export class GameStatsContainer extends Component {
     state = {
-        input : '',
-        name : ''
+        input : ''
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.setState({
-            name: this.state.input,
-            input: ''
-        })
-
         this.props.updateName(this.state.input)
     }
+
     handleChange = (event) => {
         this.setState({input : event.target.value})
         

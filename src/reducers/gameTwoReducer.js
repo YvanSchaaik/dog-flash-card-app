@@ -3,7 +3,6 @@ import {  SET_BREEDS, SET_RANDOMSOL } from '../actions/gameTwoActions'
 export default (state = {}, action = {}) => {
   switch (action.type) {
     
-   
     case SET_RANDOMSOL:
       return {
         ...state,

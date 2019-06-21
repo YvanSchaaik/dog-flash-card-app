@@ -8,14 +8,10 @@ state = { active: true }
   render() {
     return (
       <div>
-        <h1>This is the Game #2</h1>
         <p> you identified {this.props.score.wrong} wrong, and {this.props.score.correct} right good!       </p>
-        <p>Select the picture containing a {this.props.solution.breed} dog</p>
+        <p>Select the picture containing a< strong> {this.props.solution.breed} </strong> dog </p>
         <div className="Game2Solutions'">
-           <img onClick={this.props.wrong} src={this.props.random2Img.image} alt="dog Bree to guess" className="Game2DogImg" />
-           <img onClick={this.props.good} src={this.props.solution.image} alt="dog Bree to guess" className="Game2DogImg" /> 
-           <img onClick={this.props.wrong} src={this.props.random1Img.image} alt="dog Bree to guess" className="Game2DogImg" />
-          
+           {this.props.dog.map(dog => <img src={dog.img.image} onClick={dog.oC} alt={""} key={dog.id} className="Game2DogImg"/>)}
         </div>
       </div>
 

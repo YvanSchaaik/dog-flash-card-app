@@ -24,7 +24,9 @@ export function getDogs() {
     return function (dispatch) {
         request('https://dog.ceo/api/breeds/list/all')
             .then(response => {
-                const action = setDogs(Object.keys(response.body.message))
+                const data = Object.keys(response.body.message)
+                const capitalData = data.map(dog => dog.charAt(0).toUpperCase() + dog.slice(1) )
+                const action = setDogs((capitalData))
                 return dispatch(action)
             })
     }
@@ -49,6 +51,35 @@ export function getDogs() {
     }
   }
 
+export function getPercentage(score) {
+    const accuracy = Math.floor(score.correct/(score.wrong + score.correct) * 100)
+    console.log('getPercentage action creator', accuracy)
+
+    console.log('What is accuracy', accuracy)
+ 
+    return {
+        type: GET_PERCENTAGE,
+        payload: !accuracy ? 0 : accuracy
+    }
+}
+
+export function updateScore(score){
+    return {
+      type: UPDATE_SCORE,
+      payload: score
+    }
+  }
+
+export function updateName(name) {
+    return {
+        type: UPDATE_NAME,
+        payload: name
+    }
+}
+
 export const ADD_DOG_LIST = 'ADD_DOG_LIST'
 export const GET_DOGIMG = 'GET_DOGIMG'
 export const ADD_DOG_IMG_LIST = 'ADD_DOG_IMG_LIST'
+export const GET_PERCENTAGE = 'GET_PERCENTAGE'
+export const UPDATE_SCORE = 'UPDATE_SCORE'
+export const UPDATE_NAME = 'UPDATE_NAME'

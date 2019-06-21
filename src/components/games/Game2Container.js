@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Game2 from './Game2'
-import { addDog, guessBreed, getBreeds, getBreedsAndPickThree } from '../../actions/gameTwoActions'
+import {  getBreedsAndPickThree } from '../../actions/gameTwoActions'
 
 export class Game2Container extends Component {
 
@@ -17,20 +17,29 @@ export class Game2Container extends Component {
   wrong = () => {
     this.setState({
       score: {
-        correct: this.state.score.correct ,
+        correct: this.state.score.correct,
         wrong: this.state.score.wrong + 1
       }
     })
-    this.props.getBreedsAndPickThree()
+    
+    if (this.props.game3active === true) {
+      this.props.game3Renew()
+    } else {
+      this.props.getBreedsAndPickThree()
+    }
   }
   solution = () => {
     this.setState({
       score: {
-        correct: this.state.score.correct + 1 ,
-        wrong: this.state.score.wrong 
+        correct: this.state.score.correct + 1,
+        wrong: this.state.score.wrong
       }
     })
-    this.props.getBreedsAndPickThree()
+    if (this.props.game3active === true) {
+      this.props.game3Renew()
+    } else {
+      this.props.getBreedsAndPickThree()
+    }
   }
 
   componentDidMount = () => {
@@ -38,26 +47,69 @@ export class Game2Container extends Component {
   }
 
   render() {
-    if (!this.props.gameTwo.solution || !this.props.gameTwo.breeds) return 'Loading...'
+    if (  !this.props.gameTwo.solution || 
+          !this.props.gameTwo.random1  || 
+          !this.props.gameTwo.random2 ||
+          !this.state.score) {
+            return 'Loading...'
+          }
+       
+
+    const dogCards = [
+
+      {
+        id: 0,
+        img: this.props.gameTwo.solution,
+        oC: this.solution,
+      },
+      {
+        id: 1,
+        img: this.props.gameTwo.random1,
+        oC: this.wrong
+      },
+      {
+        id: 2,
+        img: this.props.gameTwo.random2,
+        oC: this.wrong
+      }
+    ]
+
+
+
+   shakeArr(dogCards)
+  
 
     return (
-      <Game2 solution={this.props.gameTwo.solution}
-        random1Img={this.props.gameTwo.random1}
-        random2Img={this.props.gameTwo.random2}
-        good={this.solution}
-        wrong={this.wrong}
-        score={this.state.score} />
+      <div>
+        <h1>This is the Game #2</h1>
+        <Game2 dog={dogCards} score={this.state.score} solution={this.props.gameTwo.solution} />
+      </div>
+
     )
   }
 }
+function shakeArr(arr) {
+  let index = arr.length
+  let temporaryValue
+  let randomIndex;
+  while (0 !== index) {
+    randomIndex = Math.floor(Math.random() * index);
+    index -= 1;
+
+    temporaryValue = arr[index];
+    arr[index] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue;
+  }
+
+  return arr;
+}
 
 const mapStateToProps = (state) => {
-  //console.log("MSTP G2 ", state)
   return {
     gameTwo: state.GameTwo
   }
 }
 
-export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickThree })(Game2Container)
+export default connect(mapStateToProps, { getBreedsAndPickThree })(Game2Container)
 
 

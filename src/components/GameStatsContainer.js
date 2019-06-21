@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import { updateName } from '../actions/actions'
 
-export default class GameStatsContainer extends Component {
+
+export class GameStatsContainer extends Component {
     state = {
-        input : '',
-        name : ''
+        input : ''
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.setState({
-            name: this.state.input,
-            input: ''
-        })
-
+        this.props.updateName(this.state.input)
     }
 
     handleChange = (event) => {
-        this.setState({input : event.target.value})   
+        this.setState({input : event.target.value})
+        
     }
 
     render() {
+        console.log("name",this.state.name)
         return (
             <div className="nameForm">
             <form onSubmit={this.handleSubmit}>
@@ -38,3 +38,5 @@ export default class GameStatsContainer extends Component {
         )
     }
 }
+
+export default connect(null, { updateName })(GameStatsContainer)

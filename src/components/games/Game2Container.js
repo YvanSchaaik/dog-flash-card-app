@@ -109,7 +109,7 @@ export class Game2Container extends Component {
   
 
     return (
-      <Game2 dog={dogCards} score={this.state.score} solution={this.props.gameTwo.solution} />
+      <Game2 dog={dogCards} score2={this.state.score} solution={this.props.gameTwo.solution} score={this.props.userStats.score}/>
     )
   }
 }
@@ -130,6 +130,7 @@ function shakeArr(arr) {
 }
 
 const mapStateToProps = (state) => {
+  console.log("ddd")
   return {
     gameTwo: state.GameTwo,
     userStats: state.userStats

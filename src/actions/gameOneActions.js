@@ -4,6 +4,9 @@ export const ADD_DOG = 'ADD_DOG'
 export const SET_SOLUTION = 'SET_SOLUTION'
 export const IMAGE_GUESS = 'IMAGE_GUESS'
 export const SET_BREEDS = 'SET_BREEDS'
+export const SET_RANDOM = 'SET_RANDOM'
+
+
 
 export function addDog(first, last){
   return {
@@ -21,6 +24,17 @@ export function setSolution(image, breed){
     payload: {
       image,
       breed
+    }
+  }
+}
+
+export function setRandom(image1,image2){
+  return {
+    type: SET_RANDOM,
+    payload: {
+      image1,
+      image2,
+      
     }
   }
 }
@@ -67,6 +81,7 @@ export function getBreedsAndPickOne () {
       })
       .then(data => {
         const image = data.response.body.message[0]
+        console.log("data", data)
         dispatch(setSolution(image, data.choice))
 
       })

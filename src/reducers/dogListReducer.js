@@ -1,3 +1,10 @@
+import {ADD_DOG_LIST} from '../actions/actions'
+
 export default (state = [], action = {}) => {
-  return state
+  switch (action.type) {
+    case ADD_DOG_LIST:
+      return action.payload
+    default:
+      return state
+  }
 }

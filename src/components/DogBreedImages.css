@@ -1,0 +1,14 @@
+
+.DogBreedImgContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DogBreedImg{
+    width: 25em;
+    max-width: 100%;
+}
+.DogBreedImg img{
+    max-width: 100%;
+}

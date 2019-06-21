@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import './DogList.css'
 
 
 export default class DogsList extends Component {
-  renderDogBreed(breed) {
-    return <li key={breed}>{breed}</li>
-  }
-
   render() {
     return (
-
       <div className="dogs-list">
         <h1>Dogs List</h1>
         {
+          this.props.dogBreeds && this.props.dogBreeds.map((breed) => {
+            return <div className="dogListItem" key={breed+"4"}>
+              
 
-          this.props.dogBreeds !== null && this.props.dogBreeds.map(breed => <li key={breed}>
-            <Link to={`/dog-breeds/${breed}`}>{breed}</Link></li>)
+                <img src="icon.png" className="dogListItemIcon" alt=" "  />
+              
+              <Link to={`dog-breeds/${breed}`}>{breed}</Link>
+
+            </div>
+          })
         }
 
-        {this.props.dogBreeds === null && 'Loading...'}
+        {!this.props.dogBreeds && 'Loading...'}
       </div>
     )
   }

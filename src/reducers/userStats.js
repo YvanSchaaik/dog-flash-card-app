@@ -2,7 +2,7 @@ import {GET_PERCENTAGE, UPDATE_NAME} from '../actions/actions'
 import {UPDATE_SCORE} from '../actions/gameOneActions'
 
 const initialState = {
-  name: 'Stranger',
+  name: '',
   score: {
     correct: 0,
     wrong: 0

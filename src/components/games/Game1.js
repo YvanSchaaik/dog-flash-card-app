@@ -9,6 +9,7 @@ export default class Game1 extends Component {
 
   getPercentage = () => {
     return Math.floor(this.props.score.correct/(this.props.score.wrong + this.props.score.correct) * 100)
+    console.log('Game1')
   }
 
   checkAnswer = (answer) => {   
@@ -34,7 +35,7 @@ export default class Game1 extends Component {
       <div>
         <h1>This is the Game #1</h1>
         <b>Score</b> Correct: {this.props.score.correct} / wrong: {this.props.score.wrong}
-        <p><b>{ !this.getPercentage() ? 0 : this.getPercentage() } %</b></p>
+        <p><b>Accuracy: { !this.getPercentage() ? 0 : this.getPercentage() } %</b></p>
         <div>
         <img className="guessImage" src={this.props.solution.image} alt="Dog Breed to guess"/>
         <h3>Solution: {this.props.solution.breed}</h3>

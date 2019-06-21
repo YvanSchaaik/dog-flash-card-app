@@ -51,6 +51,24 @@ export function getDogs() {
     }
   }
 
+
+//   getPercentage = () => {
+    // // // return Math.floor(this.props.score.correct/(this.props.score.wrong + this.props.score.correct) * 100)
+    // console.log('Game1')
+//   }
+
+
+export function getPercentage(score) {
+    const accuracy = Math.floor(score.correct/(score.wrong + score.correct) * 100)
+    console.log('getPercentage action creator', accuracy)
+
+    return {
+        type: GET_PERCENTAGE,
+        payload: accuracy
+    }
+}
+
 export const ADD_DOG_LIST = 'ADD_DOG_LIST'
 export const GET_DOGIMG = 'GET_DOGIMG'
 export const ADD_DOG_IMG_LIST = 'ADD_DOG_IMG_LIST'
+export const GET_PERCENTAGE = 'GET_PERCENTAGE'

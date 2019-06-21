@@ -14,12 +14,12 @@ export default class GameStatsContainer extends Component {
         })
 
     }
-
     handleChange = (event) => {
         this.setState({input : event.target.value})   
     }
 
     render() {
+        console.log("name",this.state.name)
         return (
             <div className="nameForm">
             <form onSubmit={this.handleSubmit}>

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Game2 from './Game2'
 import {  getBreedsAndPickThree } from '../../actions/gameTwoActions'
+import { updateScore } from '../../actions/gameOneActions'
+import {getPercentage} from '../../actions/actions'
 
 export class Game2Container extends Component {
 
@@ -13,8 +15,23 @@ export class Game2Container extends Component {
     breedsPlayed: []
   }
 
-
+ 
   wrong = () => {
+
+    console.log("wrong",this.props.userStats)
+    
+    const incorrect = {
+      correct: this.props.userStats.score.correct,
+      wrong: this.props.userStats.score.wrong + 1
+    }//
+
+    this.props.updateScore(incorrect)
+
+    this.props.getPercentage(incorrect)
+
+
+
+    
     this.setState({
       score: {
         correct: this.state.score.correct,
@@ -29,6 +46,16 @@ export class Game2Container extends Component {
     }
   }
   solution = () => {
+
+    const correct = {
+      correct: this.props.userStats.score.correct + 1,
+      wrong: this.props.userStats.score.wrong
+    }
+
+    this.props.updateScore(correct)
+
+    this.props.getPercentage(correct)
+
     this.setState({
       score: {
         correct: this.state.score.correct + 1,
@@ -44,9 +71,11 @@ export class Game2Container extends Component {
 
   componentDidMount = () => {
     this.props.getBreedsAndPickThree()
+    console.log ("score " , this.props.getPercentage({ correct: 5, wrong: 2  }))
   }
 
   render() {
+    
     if (  !this.props.gameTwo.solution || 
           !this.props.gameTwo.random1  || 
           !this.props.gameTwo.random2 ||
@@ -102,10 +131,13 @@ function shakeArr(arr) {
 
 const mapStateToProps = (state) => {
   return {
-    gameTwo: state.GameTwo
+    gameTwo: state.GameTwo,
+    userStats: state.userStats
+
+
   }
 }
 
-export default connect(mapStateToProps, { getBreedsAndPickThree })(Game2Container)
-
+export default connect(mapStateToProps, { getBreedsAndPickThree ,updateScore, getPercentage })(Game2Container)
+//export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickOne,  })(Game1Container)
 

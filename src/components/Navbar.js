@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import userStats from '../reducers/userStats'
 
 class Navbar extends Component {
   render() {

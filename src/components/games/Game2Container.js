@@ -17,20 +17,29 @@ export class Game2Container extends Component {
   wrong = () => {
     this.setState({
       score: {
-        correct: this.state.score.correct ,
+        correct: this.state.score.correct,
         wrong: this.state.score.wrong + 1
       }
     })
-    this.props.getBreedsAndPickThree()
+    
+    if (this.props.game3active === true) {
+      this.props.game3Renew()
+    } else {
+      this.props.getBreedsAndPickThree()
+    }
   }
   solution = () => {
     this.setState({
       score: {
-        correct: this.state.score.correct + 1 ,
-        wrong: this.state.score.wrong 
+        correct: this.state.score.correct + 1,
+        wrong: this.state.score.wrong
       }
     })
-    this.props.getBreedsAndPickThree()
+    if (this.props.game3active === true) {
+      this.props.game3Renew()
+    } else {
+      this.props.getBreedsAndPickThree()
+    }
   }
 
   componentDidMount = () => {

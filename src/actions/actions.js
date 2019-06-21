@@ -51,6 +51,19 @@ export function getDogs() {
     }
   }
 
+export function getPercentage(score) {
+    const accuracy = Math.floor(score.correct/(score.wrong + score.correct) * 100)
+    console.log('getPercentage action creator', accuracy)
+
+    console.log('What is accuracy', accuracy)
+ 
+    return {
+        type: GET_PERCENTAGE,
+        payload: !accuracy ? 0 : accuracy
+    }
+}
+
 export const ADD_DOG_LIST = 'ADD_DOG_LIST'
 export const GET_DOGIMG = 'GET_DOGIMG'
 export const ADD_DOG_IMG_LIST = 'ADD_DOG_IMG_LIST'
+export const GET_PERCENTAGE = 'GET_PERCENTAGE'

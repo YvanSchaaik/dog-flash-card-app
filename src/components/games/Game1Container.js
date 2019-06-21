@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Game1 from './Game1'
-import { addDog, guessBreed, getBreeds, getBreedsAndPickOne } from '../../actions/gameOneActions'
+import { addDog, guessBreed, getBreeds, getBreedsAndPickOne, updateScore } from '../../actions/gameOneActions'
+
 
 export class Game1Container extends Component {
 
@@ -43,6 +44,12 @@ export class Game1Container extends Component {
 
   componentDidMount = () => {
     this.props.getBreedsAndPickOne()
+    this.props.updateScore({
+      correct: 2,
+      wrong: 8
+    })
+    
+
   }
 
   getOptions = () => {
@@ -69,7 +76,7 @@ export class Game1Container extends Component {
     const options = this.getOptions()
 
     return (
-      <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.state.score} hint={this.props.gameOne.solution.breed[0]}/>
+      <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.state.score} hint={this.props.gameOne.solution.breed[0]} accuracy="288" />
     )
   }
 }
@@ -80,4 +87,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickOne })(Game1Container)
+export default connect(mapStateToProps, { addDog, guessBreed, getBreeds, getBreedsAndPickOne, updateScore })(Game1Container)

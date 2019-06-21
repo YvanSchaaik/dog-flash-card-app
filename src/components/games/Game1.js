@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './Game1.css'
 import { connect } from 'react-redux';
-import userStats from '../../reducers/userStats'
+import { userStats } from '../../reducers/userStats'
+import { getPercentage } from '../../actions/actions'
+
 
 class Game1 extends Component {
   state = {
@@ -37,11 +39,21 @@ class Game1 extends Component {
     const options = this.props.options
     this.shuffle(options)
 
+    const pointer = this.props.userStats;
+
+    if(pointer.score.wrong !== 0 && pointer.score.correct !== 0) {
+      this.props.getPercentage(this.props.userStats.score)
+    }
+
+    console.log('Game1 checing STATE', this.props.userStats.accuracy)
+
     return (
       <div>
         <h1>This is the Game #1</h1>
         <b>Score</b> Correct: {this.props.score.correct} / wrong: {this.props.score.wrong}
-        <p><b>Accuracy: { !this.props.accuracy ? 0 : this.props.accuracy } %</b></p>
+
+        <p><b>Accuracy: 
+        { !this.props.userStats.accuracy ? 0 : this.props.userStats.accuracy } %</b></p>
 
         <div>
         <img className="guessImage" src={this.props.solution.image} alt="Dog Breed to guess"/>
@@ -65,8 +77,8 @@ class Game1 extends Component {
 
 export const mapStateToProps = (state) => {
   return {
-    userStat: state.userStats
+    userStats: state.userStats
   }
 }
 
-export default connect(mapStateToProps, )(Game1)
+export default connect(mapStateToProps, { getPercentage })(Game1)

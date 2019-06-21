@@ -51,13 +51,6 @@ export function getDogs() {
     }
   }
 
-
-//   getPercentage = () => {
-    // // // return Math.floor(this.props.score.correct/(this.props.score.wrong + this.props.score.correct) * 100)
-    // console.log('Game1')
-//   }
-
-
 export function getPercentage(score) {
     const accuracy = Math.floor(score.correct/(score.wrong + score.correct) * 100)
     console.log('getPercentage action creator', accuracy)

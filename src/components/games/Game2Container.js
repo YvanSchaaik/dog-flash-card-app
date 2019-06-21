@@ -80,7 +80,11 @@ export class Game2Container extends Component {
   
 
     return (
-      <Game2 dog={dogCards} score={this.state.score} solution={this.props.gameTwo.solution} />
+      <div>
+        <h1>This is the Game #2</h1>
+        <Game2 dog={dogCards} score={this.state.score} solution={this.props.gameTwo.solution} />
+      </div>
+
     )
   }
 }

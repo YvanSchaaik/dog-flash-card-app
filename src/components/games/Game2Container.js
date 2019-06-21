@@ -47,7 +47,13 @@ export class Game2Container extends Component {
   }
 
   render() {
-    if (!this.props.gameTwo.solution || !this.props.gameTwo.breeds) return 'Loading...'
+    if (  !this.props.gameTwo.solution || 
+          !this.props.gameTwo.random1  || 
+          !this.props.gameTwo.random2 ||
+          !this.state.score) {
+            return 'Loading...'
+          }
+       
 
     const dogCards = [
 

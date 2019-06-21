@@ -7,11 +7,13 @@ import { getPercentage } from '../../actions/actions'
 state = { active: true }
 
 
+
 render() {
   return (
     <div>
       <h1>This is the Game #2</h1>
         <b>Score</b> Correct: {this.props.score.correct} / Wrong: {this.props.score.wrong}
+
         <p>Select the picture containing a< strong> {this.props.solution.breed} </strong> dog </p>
 
         <p><b>Accuracy: { !this.props.userStats.accuracy ? 0 : this.props.userStats.accuracy } %</b></p>

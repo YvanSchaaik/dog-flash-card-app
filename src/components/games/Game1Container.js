@@ -69,7 +69,10 @@ export class Game1Container extends Component {
 
   
     return (
-      <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.props.userStats.score} hint={this.props.gameOne.solution.breed[0]} />
+      <div>
+        <h1>This is the Game #1</h1>
+        <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.props.userStats.score} hint={this.props.gameOne.solution.breed[0]} />
+      </div>
     )
   }
 

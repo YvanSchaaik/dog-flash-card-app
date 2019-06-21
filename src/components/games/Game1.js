@@ -49,7 +49,6 @@ class Game1 extends Component {
 
     return (
       <div>
-        <h1>This is the Game #1</h1>
         <b>Score</b> Correct: {this.props.score.correct} / wrong: {this.props.score.wrong}
 
         <p><b>Accuracy: 

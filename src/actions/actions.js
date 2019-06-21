@@ -63,7 +63,23 @@ export function getPercentage(score) {
     }
 }
 
+export function updateScore(score){
+    return {
+      type: UPDATE_SCORE,
+      payload: score
+    }
+  }
+
+export function updateName(name) {
+    return {
+        type: UPDATE_NAME,
+        payload: name
+    }
+}
+
 export const ADD_DOG_LIST = 'ADD_DOG_LIST'
 export const GET_DOGIMG = 'GET_DOGIMG'
 export const ADD_DOG_IMG_LIST = 'ADD_DOG_IMG_LIST'
 export const GET_PERCENTAGE = 'GET_PERCENTAGE'
+export const UPDATE_SCORE = 'UPDATE_SCORE'
+export const UPDATE_NAME = 'UPDATE_NAME'

@@ -17,19 +17,30 @@ export class Game1Container extends Component {
     if(answer_status) {
       console.log('I am in correct answer')
 
-      this.setState({score: {
-        correct: this.state.score.correct + 1,
-        wrong: this.state.score.wrong
-      }}) 
+      // this.setState({score: {
+      //   correct: this.state.score.correct + 1,
+      //   wrong: this.state.score.wrong
+      // }}) 
+
+      this.props.updateScore({
+        correct: this.props.userStats.score.correct + 1,
+        wrong: this.props.userStats.score.wrong
+      })
+
     } 
     
     if(!answer_status) {
       console.log('I am in INCORRECT answer')
 
-      this.setState({score: {
-        correct: this.state.score.correct,
-        wrong: this.state.score.wrong + 1
-      }}) 
+      // this.setState({score: {
+      //   correct: this.state.score.correct,
+      //   wrong: this.state.score.wrong + 1
+      // }}) 
+
+      this.props.updateScore({
+        correct: this.props.userStats.score.correct,
+        wrong: this.props.userStats.score.wrong + 1
+      })
     }
     //added by Jeroen (begin)
     //console.log("G1 props" ,) 
@@ -44,10 +55,7 @@ export class Game1Container extends Component {
 
   componentDidMount = () => {
     this.props.getBreedsAndPickOne()
-    this.props.updateScore({
-      correct: 2,
-      wrong: 8
-    })
+    this.props.updateScore(this.props.userStats.score)
     
 
   }
@@ -76,14 +84,15 @@ export class Game1Container extends Component {
     const options = this.getOptions()
 
     return (
-      <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.state.score} hint={this.props.gameOne.solution.breed[0]} accuracy="288" />
+      <Game1 solution={ this.props.gameOne.solution } options = { options } correct={ (answer_status) => this.nextQuestion(answer_status)} score={this.props.userStats.score} hint={this.props.gameOne.solution.breed[0]} accuracy={this.props.userStats.accuracy} />
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    gameOne: state.GameOne
+    gameOne: state.GameOne,
+    userStats: state.userStats
   }
 }
 
